@@ -3,7 +3,7 @@
 
 *An IoT-Enabled Multi-Sensor Health Monitoring System*
 
-Version 2.1 | Arduino Innovation Contest Submission | Kampala, Uganda
+Version 1.0 | Arduino Innovation Contest Submission | Kampala, Uganda
 
 ---
 
