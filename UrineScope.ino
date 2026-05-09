@@ -1,5 +1,5 @@
 // ============================================================
-//  UrineScope v2.1  —  Final Complete Sketch
+//  UrineScope v1.0  —  Final Complete Sketch
 //  Board  : Arduino Mega 2560
 //  Network: SIM800L  (NTP + WeatherAPI + Firebase)
 //  Sensors: TDS (A12) ×2 | TCS34725 (I2C) | MQ135 (A9) | MQ3 (A8)
@@ -13,10 +13,6 @@
 //
 //  MQ display: (1 - Rs/R0) × 100% so values RISE as gas rises.
 //  Green < 30% | Orange 30-60% | Red > 60%
-//
-//  State cycle:
-//  STANDBY → SETTLING → SAMPLING → DISPLAYING (30s)
-//         → FLUSHING (20s) → READY (10s) → STANDBY
 // ============================================================
 #include <Wire.h>
 #include <SPI.h>
@@ -74,8 +70,8 @@ SoftwareSerial SIM800(SIM_RX, SIM_TX);
 #define WX_INTERVAL     1800000UL  // 30 min
 
 // ── FIREBASE CREDENTIALS ─────────────────────────────────────
-#define FB_HOST   "urinescope-6fe77-default-rtdb.firebaseio.com"
-#define FB_SECRET "YUhM73dvTgPJc27LNdsA5svBEWY6ZswW7Exi3hAH"
+#define FB_HOST   "your-project.firebaseio.com"
+#define FB_SECRET "your-database-secret"
 #define FB_PATH   "/readings.json"
 
 // ── WEATHER API ──────────────────────────────────────────────
