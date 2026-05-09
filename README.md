@@ -1,4 +1,4 @@
-# UrineScope 💧
+# UrineScope 
 **Smart Passive Urine Diagnostics Platform**
 
 *An IoT-Enabled Multi-Sensor Health Monitoring System*
@@ -7,7 +7,7 @@ Version 2.1 | Arduino Innovation Contest Submission | Kampala, Uganda
 
 ---
 
-## 📖 Abstract
+## Abstract
 
 **UrineScope** is a fully autonomous health screening platform that performs real-time multi-parameter urinalysis at the point of urination without requiring any conscious action from the user. 
 
@@ -15,7 +15,7 @@ By integrating sensor hardware directly into a standard urinal drain via a passi
 
 ---
 
-## 🛠️ Hardware Architecture
+## Hardware Architecture
 
 UrineScope is built around the **Arduino Mega 2560**, selected for its robust I/O capabilities, capable of driving all sensors, displays, and communication modules without external multiplexing.
 
@@ -36,7 +36,7 @@ UrineScope is built around the **Arduino Mega 2560**, selected for its robust I/
 
 ---
 
-## 🧠 Diagnostic Engine & Scoring
+## Diagnostic Engine & Scoring
 
 The scoring engine is a four-stage weighted rule-based system that operates entirely on the Arduino. It errs toward recommending medical consultation.
 
@@ -51,7 +51,7 @@ The scoring engine is a four-stage weighted rule-based system that operates enti
 
 ---
 
-## 🔄 Event-Driven State Machine
+## Event-Driven State Machine
 
 The system follows a strict event-driven pipeline to eliminate false readings:
 
@@ -64,7 +64,7 @@ The system follows a strict event-driven pipeline to eliminate false readings:
 
 ---
 
-## ☁️ Cloud Integration & Dashboard
+##  Cloud Integration & Dashboard
 
 All sessions are fully anonymized to protect user privacy.
 
@@ -73,7 +73,7 @@ All sessions are fully anonymized to protect user privacy.
 
 ---
 
-## 🚀 Setup & Installation
+## Setup & Installation
 
 ### Dependencies
 Ensure the following libraries are installed in your Arduino IDE:
@@ -99,7 +99,7 @@ const char* WX_CITY = "Kampala";
 
 ---
 
-## 🗺️ Roadmap (v1.1)
+##  Roadmap (v1.1)
 
 * **pH Sensor Integration:** To identify acidosis and alkalosis (UTI risk).
 * **Turbidity Sensor (SEN0189):** To measure light scatter (pyuria/bacteriuria).
