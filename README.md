@@ -9,11 +9,11 @@ Version 1.0 | Arduino Innovation Contest Submission | Kampala, Uganda
 
 ## Design Considerations
 
-UrineScope is built for deployment in environments where standard infrastructure assumptions break down — public restrooms in low-resource communities, rural clinics, schools, and high-footfall venues without reliable connectivity or controlled climates. Two component choices reflect this directly:
+UrineScope is built for deployment in environments where standard infrastructure assumptions break down  public restrooms in low-resource communities, rural clinics, schools, and high-footfall venues without reliable connectivity or controlled climates. Two component choices reflect this directly:
 
 ### Why SIM800L (GSM/GPRS) instead of a Wi-Fi-enabled board
 
-Restrooms in low-resource settings — and even most public restrooms generally — do not have accessible Wi-Fi coverage. Bathroom walls, plumbing, and the typical placement of routers elsewhere in a building mean that even buildings with Wi-Fi often have no usable signal at the urinal. A Wi-Fi-dependent device would be silently offline in exactly the deployment contexts UrineScope is built for.
+Restrooms in low-resource settings and even most public restrooms generally do not have accessible Wi-Fi coverage. Bathroom walls, plumbing, and the typical placement of routers elsewhere in a building mean that even buildings with Wi-Fi often have no usable signal at the urinal. A Wi-Fi-dependent device would be silently offline in exactly the deployment contexts UrineScope is built for.
 
 The SIM800L module communicates over the cellular GSM/GPRS network, which has near-universal coverage across Uganda and most of Sub-Saharan Africa. As long as the unit is somewhere a basic phone would get signal, UrineScope can sync to Firebase, query NTP for time, and pull weather data. This makes the device deployable in any restroom, anywhere, without requiring the venue to provision network infrastructure.
 
@@ -21,7 +21,7 @@ The SIM800L module communicates over the cellular GSM/GPRS network, which has ne
 
 The diagnostic engine corrects sensor readings against ambient temperature and humidity to account for environmental hydration stress (heat index normalization). The intuitive choice would be local DHT22 or BME280 sensors. This was deliberately rejected for two reasons:
 
-1. **Bathroom microclimates are not representative of true ambient conditions.** Restrooms are typically warmer and more humid than outdoor air due to ventilation patterns, hand washing, body heat from occupants, and (in many low-resource settings) lack of climate control. Reading local sensors would feed the scoring algorithm a distorted environmental context — flagging false dehydration risk based on bathroom humidity rather than the heat stress the user has actually been exposed to outside.
+1. **Bathroom microclimates are not representative of true ambient conditions.** Restrooms are typically warmer and more humid than outdoor air due to ventilation patterns, hand washing, body heat from occupants, and (in many low-resource settings) lack of climate control. Reading local sensors would feed the scoring algorithm a distorted environmental context  flagging false dehydration risk based on bathroom humidity rather than the heat stress the user has actually been exposed to outside.
 
 2. **Outdoor sensors require additional infrastructure.** Mounting accurate temperature and humidity sensors outside the building, weatherproofing them, and routing wiring back to the unit adds cost, installation complexity, and venue-permission overhead — none of which is acceptable for a device meant to drop into existing drain infrastructure with minimal disruption.
 
@@ -29,7 +29,7 @@ A WeatherAPI query returns regional ambient conditions for the unit's configured
 
 ### Why the Arduino Mega 2560
 
-The Mega 2560 is widely available across Uganda and the broader region at low cost, easily replaceable through local electronics suppliers, and maintainable by any technician familiar with the Arduino ecosystem. It provides enough analog and digital GPIO to drive every sensor, the TFT display, and the SIM800L module simultaneously without pin multiplexing or expansion shields. A more sophisticated board would raise the per-unit cost and reduce the pool of people who can service the device in the field — both of which work against the deployment goals.
+The Mega 2560 is widely available across Uganda and the broader region at low cost, easily replaceable through local electronics suppliers, and maintainable by any technician familiar with the Arduino ecosystem. It provides enough analog and digital GPIO to drive every sensor, the TFT display, and the SIM800L module simultaneously without pin multiplexing or expansion shields. A more sophisticated board would raise the per-unit cost and reduce the pool of people who can service the device in the field both of which work against the deployment goals.
 
 ---
 
